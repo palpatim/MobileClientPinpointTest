@@ -1,0 +1,26 @@
+{
+  "IdentityManager": {
+    "Default": {}
+  },
+  "CredentialsProvider": {
+    "CognitoIdentity": {
+      "Default": {
+        "PoolId": "XX-XXXX-X:XXXXXXXX-XXXX-1234-abcd-1234567890ab",
+        "Region": "XX-XXXX-X"
+      }
+    }
+  },
+  "CognitoUserPool": {
+    "Default": {
+      "PoolId": "XX-XXXX-X_abcd1234",
+      "AppClientId": "XXXXXXXX",
+      "AppClientSecret": "XXXXXXXXX",
+      "Region": "XX-XXXX-X",
+      "PinpointAppId": "XXX"
+    }
+  },
+  "Pinpoint": {
+      "PinpointAppId": "XXX",
+      "Region": "XX-XXXX-X"
+  }
+}
