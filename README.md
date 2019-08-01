@@ -25,6 +25,7 @@ A sample app to test integration of AWSMobileClient with Pinpoint events
 ## Configuring the app
 
 - Clone this repository
+- `pod install`
 - Edit the `awsconfiguration.json` file with the appropriate values for:
   - **CredentialsProvider > CognitoIdentity > Default**
     - **PoolId**: The Identity Pool ID from your Cognito Identity Pool
