@@ -18,18 +18,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGT-uW-g3H">
-                                <rect key="frame" x="184" y="460" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="didTapSignInOutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ndl-b7-x5R"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oRH-1F-mFI">
+                                <rect key="frame" x="0.0" y="88" width="414" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGT-uW-g3H">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                        <state key="normal" title="Sign in"/>
+                                        <connections>
+                                            <action selector="didTapSignInOutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ndl-b7-x5R"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC3-No-d0m">
+                                        <rect key="frame" x="0.0" y="30" width="414" height="30"/>
+                                        <state key="normal" title="Send EVENT_A"/>
+                                        <connections>
+                                            <action selector="didTapSendEventA:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tty-kV-4eX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXf-iy-iiK">
+                                        <rect key="frame" x="0.0" y="60" width="414" height="30"/>
+                                        <state key="normal" title="Send EVENT_B"/>
+                                        <connections>
+                                            <action selector="didTapSendEventB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8cB-pY-X5c"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="rGT-uW-g3H" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3dN-OS-MPU"/>
-                            <constraint firstItem="rGT-uW-g3H" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="crY-Sf-0em"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oRH-1F-mFI" secondAttribute="trailing" id="0JU-6V-sWa"/>
+                            <constraint firstItem="oRH-1F-mFI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Op1-Nu-ay1"/>
+                            <constraint firstItem="oRH-1F-mFI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="flc-KL-cRh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

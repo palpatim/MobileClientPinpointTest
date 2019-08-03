@@ -7,19 +7,40 @@
 //
 
 import UIKit
+
 import AWSMobileClient
+import AWSPinpoint
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var signInOutButton: UIButton!
 
+    var mobileClient: AWSMobileClient {
+        return AWSMobileClient.sharedInstance()
+    }
+
+    var pinpoint: AWSPinpoint? {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return nil
+        }
+        return appDelegate.pinpoint
+    }
+
+    var analyticsClient: AWSPinpointAnalyticsClient? {
+        return pinpoint?.analyticsClient
+    }
+
     var currentUserState: UserState = .unknown {
         didSet {
             switch currentUserState {
             case .signedIn:
-                signInOutButton.setTitle("Sign out", for: .normal)
+                DispatchQueue.main.async {
+                    self.signInOutButton.setTitle("Sign out", for: .normal)
+                }
             default:
-                signInOutButton.setTitle("Sign in", for: .normal)
+                DispatchQueue.main.async {
+                    self.signInOutButton.setTitle("Sign in", for: .normal)
+                }
             }
         }
     }
@@ -35,6 +56,8 @@ class ViewController: UIViewController {
     deinit {
         AWSMobileClient.sharedInstance().removeUserStateListener(self)
     }
+
+    // MARK: - IBActions
 
     @IBAction func didTapSignInOutButton(_ sender: Any) {
         if currentUserState == .signedIn {
@@ -61,6 +84,28 @@ class ViewController: UIViewController {
             print("showSignIn result: \(userState)")
         }
 
+    }
+
+    @IBAction func didTapSendEventA(_ sender: Any) {
+        recordEvent(named: "event_a")
+    }
+
+    @IBAction func didTapSendEventB(_ sender: Any) {
+        recordEvent(named: "event_b")
+    }
+
+    // MARK: - Utility functions
+
+    private func recordEvent(named eventType: String) {
+        guard let analyticsClient = analyticsClient else {
+            return
+        }
+
+        let event = analyticsClient.createEvent(withEventType: eventType)
+        analyticsClient.record(event)
+
+        // Note: Normally this would be batched or timed, rather than submitted on each event
+        analyticsClient.submitEvents()
     }
 
 }

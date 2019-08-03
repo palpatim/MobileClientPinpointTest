@@ -9,11 +9,13 @@
 import UIKit
 
 import AWSMobileClient
+import AWSPinpoint
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var pinpoint: AWSPinpoint?
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -21,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AWSDDLog.sharedInstance.logLevel = .verbose
         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
 
-        AWSMobileClient.sharedInstance().initialize { userState, error in
+        AWSMobileClient.sharedInstance().initialize { [weak self] userState, error in
             if let error = error {
                 print("Error initializing AWSMobileClient: \(error)")
                 return
@@ -33,7 +35,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
 
             print("Initialized AWSMobileClient: \(userState)")
+
+            // Initialize Pinpoint
+            let pinpointConfiguration =
+                AWSPinpointConfiguration.defaultPinpointConfiguration(launchOptions: launchOptions)
+
+            self?.pinpoint = AWSPinpoint(configuration: pinpointConfiguration)
+
+            print("Initialized Pinpoint")
         }
+
         return true
     }
 

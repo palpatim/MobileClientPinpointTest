@@ -9,5 +9,6 @@ target 'MobileClientPinpointTest' do
   pod 'AWSMobileClient'
   pod 'AWSAuthUI'
   pod 'AWSUserPoolsSignIn'
+  pod 'AWSPinpoint'
 
 end
