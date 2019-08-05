@@ -20,7 +20,7 @@
     }
   },
   "Pinpoint": {
-      "PinpointAppId": "XXX",
+      "AppId": "XXX",
       "Region": "us-east-1"
   }
 }
