@@ -47,7 +47,7 @@ you do not need Cognito User Pools to send auth events to Pinpoint, you may use 
       - **AppClientSecret**: The App client secret from the Amazon Cognito app client you created above
       - **Region**: The AWS region in which you created your Cognito User Pool
     - **Pinpoint**
-      - **PinpointAppId**: The Pinpoint app ID from the Pinpoint project you created above
+      - **AppId**: The Pinpoint app ID from the Pinpoint project you created above
       - **Region**: The AWS region in which you created your Pinpoint App. This **must** be `us-east-1`.
 
 ## Optional: Enable Cognito User Pool auth events in Pinpoint
