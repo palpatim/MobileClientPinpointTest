@@ -1,26 +1,35 @@
 {
-  "IdentityManager": {
-    "Default": {}
-  },
-  "CredentialsProvider": {
-    "CognitoIdentity": {
-      "Default": {
-        "PoolId": "XX-XXXX-X:XXXXXXXX-XXXX-1234-abcd-1234567890ab",
-        "Region": "XX-XXXX-X"
-      }
+    "UserAgent": "aws-amplify/cli",
+    "Version": "0.1.0",
+    "IdentityManager": {
+        "Default": {}
+    },
+    "PinpointAnalytics": {
+        "Default": {
+            "AppId": "your_pinpoint_app_id",
+            "Region": "xx-xxxx-x"
+        }
+    },
+    "PinpointTargeting": {
+        "Default": {
+            "Region": "xx-xxxx-x"
+        }
+    },
+    "CredentialsProvider": {
+        "CognitoIdentity": {
+            "Default": {
+                "PoolId": "xx-xxxx-x:12345678-1234-4568-1234-1234567890ab",
+                "Region": "xx-xxxx-x"
+            }
+        }
+    },
+    "CognitoUserPool": {
+        "Default": {
+            "PoolId": "xx-xxxx-x_abcdefghi",
+            "AppClientId": "0123456789abcdef0123456789",
+            "AppClientSecret": "0123456789abcdefghijklmnopqrstuvwxyz0123456789abcdef",
+            "Region": "xx-xxxx-x",
+            "PinpointAppId": "your_pinpoint_app_id"
+        }
     }
-  },
-  "CognitoUserPool": {
-    "Default": {
-      "PoolId": "XX-XXXX-X_abcd1234",
-      "AppClientId": "XXXXXXXX",
-      "AppClientSecret": "XXXXXXXXX",
-      "Region": "XX-XXXX-X",
-      "PinpointAppId": "XXX"
-    }
-  },
-  "Pinpoint": {
-      "AppId": "XXX",
-      "Region": "us-east-1"
-  }
 }
